@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
+import { BottomNav } from '../components/BottomNav';
 import { Screen } from '../components/Screen';
 import { Lesson } from '../domain/types';
 import { colors } from '../theme/theme';
@@ -36,12 +37,14 @@ export function DictionaryScreen({ lessons }: DictionaryScreenProps) {
         lesson.exampleFi,
         lesson.exampleZh,
         lesson.categoryZh,
+        lesson.levelZh,
+        lesson.themeZh,
       ].some((field) => normalize(field).includes(normalizedQuery));
     });
   }, [lessons, query]);
 
   return (
-    <Screen>
+    <Screen bottomBar={<BottomNav />}>
       <View style={styles.hero}>
         <Text style={styles.title}>芬兰语小词典</Text>
         <Text style={styles.subtitle}>可以搜索芬兰语单词、中文意思、中文发音提示，或者例句里的关键词。</Text>
@@ -74,6 +77,9 @@ export function DictionaryScreen({ lessons }: DictionaryScreenProps) {
                 <Text style={styles.word}>{lesson.finnish}</Text>
                 <Text style={styles.category}>{lesson.categoryZh}</Text>
               </View>
+              <Text style={styles.meta}>
+                {lesson.levelZh} · {lesson.themeZh}
+              </Text>
               <Text style={styles.pronunciation}>{lesson.pronunciationZh}</Text>
               <Text style={styles.translation}>{lesson.chinese}</Text>
               <Text style={styles.exampleFi}>{lesson.exampleFi}</Text>
@@ -170,7 +176,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.accent,
     fontWeight: '700',
+    marginTop: 4,
     marginBottom: 6,
+  },
+  meta: {
+    fontSize: 13,
+    color: colors.muted,
   },
   translation: {
     fontSize: 18,

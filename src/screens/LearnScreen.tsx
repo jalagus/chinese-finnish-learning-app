@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { AudioPlayButton } from '../components/AudioPlayButton';
+import { BottomNav } from '../components/BottomNav';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { Screen } from '../components/Screen';
 import { getLessonAudio } from '../data/audioManifest';
@@ -35,9 +36,15 @@ export function LearnScreen({
   onRateEasy,
   onRestart,
 }: LearnScreenProps) {
+  const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
+
+  useEffect(() => {
+    setIsAnswerRevealed(false);
+  }, [lesson?.id]);
+
   if (!lesson) {
     return (
-      <Screen>
+      <Screen bottomBar={<BottomNav />}>
         <View style={styles.doneCard}>
           <Text style={styles.doneTitle}>今天的练习已经完成</Text>
           <Text style={styles.doneText}>本轮队列已结束。重新开始后，系统会优先安排已经到期的复习卡片。</Text>
@@ -50,10 +57,13 @@ export function LearnScreen({
   const lessonAudio = getLessonAudio(lesson.id);
 
   return (
-    <Screen>
+    <Screen bottomBar={<BottomNav />}>
       <View style={styles.card}>
         <Text style={styles.label}>芬兰语单词</Text>
         <Text style={styles.word}>{lesson.finnish}</Text>
+        <Text style={styles.meta}>
+          {lesson.levelZh} · {lesson.themeZh} · {lesson.categoryZh}
+        </Text>
         <Text style={styles.pronunciation}>{lesson.pronunciationZh}</Text>
         <View style={styles.audioRow}>
           <AudioPlayButton source={lessonAudio?.word?.source} label="单词发音" />
@@ -61,24 +71,37 @@ export function LearnScreen({
 
         <View style={styles.divider} />
 
-        <Text style={styles.label}>中文含义</Text>
-        <Text style={styles.translation}>{lesson.chinese}</Text>
+        {isAnswerRevealed ? (
+          <>
+            <Text style={styles.label}>中文含义</Text>
+            <Text style={styles.translation}>{lesson.chinese}</Text>
 
-        <Text style={styles.label}>例句</Text>
-        <Text style={styles.exampleFi}>{lesson.exampleFi}</Text>
-        <Text style={styles.exampleZh}>{lesson.exampleZh}</Text>
-        <View style={styles.audioRow}>
-          <AudioPlayButton source={lessonAudio?.example?.source} label="例句朗读" />
-        </View>
+            <Text style={styles.label}>例句</Text>
+            <Text style={styles.exampleFi}>{lesson.exampleFi}</Text>
+            <Text style={styles.exampleZh}>{lesson.exampleZh}</Text>
+            <View style={styles.audioRow}>
+              <AudioPlayButton source={lessonAudio?.example?.source} label="例句朗读" />
+            </View>
 
-        <Text style={styles.tip}>{lesson.tipZh}</Text>
-        <Text style={styles.schedule}>{formatSchedule(progress)}</Text>
+            <Text style={styles.tip}>{lesson.tipZh}</Text>
+            <Text style={styles.schedule}>{formatSchedule(progress)}</Text>
+          </>
+        ) : (
+          <View style={styles.hiddenState}>
+            <Text style={styles.hiddenPrompt}>先回想中文意思，再翻开答案。</Text>
+            <PrimaryButton label="显示答案" onPress={() => setIsAnswerRevealed(true)} />
+          </View>
+        )}
       </View>
 
-      <PrimaryButton label="完全忘了" onPress={onRateAgain} variant="secondary" />
-      <PrimaryButton label="有点难" onPress={onRateHard} variant="secondary" />
-      <PrimaryButton label="刚好记得" onPress={onRateGood} />
-      <PrimaryButton label="非常轻松" onPress={onRateEasy} />
+      {isAnswerRevealed ? (
+        <>
+          <PrimaryButton label="完全忘了" onPress={onRateAgain} variant="secondary" />
+          <PrimaryButton label="有点难" onPress={onRateHard} variant="secondary" />
+          <PrimaryButton label="刚好记得" onPress={onRateGood} />
+          <PrimaryButton label="非常轻松" onPress={onRateEasy} />
+        </>
+      ) : null}
     </Screen>
   );
 }
@@ -106,6 +129,12 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     color: colors.accent,
+    fontWeight: '700',
+  },
+  meta: {
+    marginTop: 8,
+    fontSize: 13,
+    color: colors.warm,
     fontWeight: '700',
   },
   divider: {
@@ -143,6 +172,14 @@ const styles = StyleSheet.create({
   },
   audioRow: {
     marginTop: 12,
+  },
+  hiddenState: {
+    marginTop: 8,
+  },
+  hiddenPrompt: {
+    fontSize: 15,
+    lineHeight: 22,
+    color: colors.muted,
   },
   doneCard: {
     backgroundColor: colors.card,

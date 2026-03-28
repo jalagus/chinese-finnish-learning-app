@@ -1,18 +1,21 @@
 import React, { PropsWithChildren } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors } from '../theme/theme';
 
 type ScreenProps = PropsWithChildren<{
   padded?: boolean;
+  bottomBar?: React.ReactNode;
 }>;
 
-export function Screen({ children, padded = true }: ScreenProps) {
+export function Screen({ children, padded = true, bottomBar }: ScreenProps) {
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={[styles.content, padded && styles.padded]}>
         <View>{children}</View>
       </ScrollView>
+      {bottomBar ? <View style={styles.bottomBar}>{bottomBar}</View> : null}
     </SafeAreaView>
   );
 }
@@ -28,5 +31,9 @@ const styles = StyleSheet.create({
   padded: {
     padding: 20,
   },
+  bottomBar: {
+    backgroundColor: colors.surface,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+  },
 });
-

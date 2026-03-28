@@ -2,7 +2,14 @@ import React, { createContext, PropsWithChildren, useContext, useMemo, useState 
 
 import { goalOptions, lessonCatalog, storyCatalog } from '../data/seed';
 import { GoalOption, LessonProgress, PracticeEntry, ReviewGrade, UserProfile } from '../domain/types';
-import { applySm2Review, buildSessionPlan, buildStats, createInitialLessonProgress } from '../features/review/reviewEngine';
+import {
+  applySm2Review,
+  buildRecommendedLessons,
+  buildRecommendedStories,
+  buildSessionPlan,
+  buildStats,
+  createInitialLessonProgress,
+} from '../features/review/reviewEngine';
 
 type AppStateValue = {
   hasOnboarded: boolean;
@@ -10,6 +17,8 @@ type AppStateValue = {
   lessons: typeof lessonCatalog;
   stories: typeof storyCatalog;
   dailyPlan: typeof lessonCatalog;
+  recommendedLessons: typeof lessonCatalog;
+  recommendedStories: typeof storyCatalog;
   currentLesson: (typeof lessonCatalog)[number] | null;
   currentLessonProgress: LessonProgress | null;
   recentActivity: PracticeEntry[];
@@ -48,6 +57,8 @@ export function AppProvider({ children }: PropsWithChildren) {
   const value = useMemo<AppStateValue>(() => {
     const stats = buildStats(lessonCatalog, lessonProgressMap, practiceLog);
     const currentLesson = dailyPlan[currentIndex] ?? null;
+    const recommendedLessons = buildRecommendedLessons(lessonCatalog, lessonProgressMap);
+    const recommendedStories = buildRecommendedStories(storyCatalog, lessonCatalog, lessonProgressMap);
 
     const rebuildSession = (goal = profile.selectedGoal, progressMap = lessonProgressMap) => {
       const nextSession = buildSessionPlan(lessonCatalog, progressMap, goal.lessonsPerDay);
@@ -61,6 +72,8 @@ export function AppProvider({ children }: PropsWithChildren) {
       lessons: lessonCatalog,
       stories: storyCatalog,
       dailyPlan,
+      recommendedLessons,
+      recommendedStories,
       currentLesson,
       currentLessonProgress: currentLesson ? lessonProgressMap[currentLesson.id] : null,
       recentActivity: practiceLog.slice().reverse().slice(0, 8),

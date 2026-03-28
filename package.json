@@ -10,9 +10,12 @@
     "ios": "expo run:ios",
     "web": "expo start --web --port 8083",
     "prebuild": "expo prebuild",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "audio:manifest": "python3 scripts/build_audio_asset_manifest.py",
+    "audio:bundle": "python3 scripts/convert_audio_to_mp3.py --input-dir out/audio --output-dir assets/audio --force && python3 scripts/build_audio_asset_manifest.py"
   },
   "dependencies": {
+    "@expo/vector-icons": "^15.1.1",
     "expo": "~55.0.9",
     "expo-audio": "~55.0.9",
     "expo-constants": "~55.0.9",

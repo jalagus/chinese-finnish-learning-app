@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { BottomNav } from '../components/BottomNav';
 import { Screen } from '../components/Screen';
 import { LearningStats, PracticeEntry, UserProfile } from '../domain/types';
 import { colors } from '../theme/theme';
@@ -13,7 +14,7 @@ type ProgressScreenProps = {
 
 export function ProgressScreen({ profile, stats, recentActivity }: ProgressScreenProps) {
   return (
-    <Screen>
+    <Screen bottomBar={<BottomNav />}>
       <View style={styles.summaryCard}>
         <Text style={styles.summaryTitle}>你的节奏</Text>
         <Text style={styles.summaryText}>

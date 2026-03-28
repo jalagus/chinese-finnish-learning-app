@@ -22,6 +22,7 @@ export default function RootLayout() {
         <Stack.Screen name="onboarding" options={{ title: '开始学习' }} />
         <Stack.Screen name="home" options={{ title: 'Suomi 起步' }} />
         <Stack.Screen name="learn" options={{ title: '今日练习' }} />
+        <Stack.Screen name="explore" options={{ title: '发现内容' }} />
         <Stack.Screen name="dictionary" options={{ title: '词典搜索' }} />
         <Stack.Screen name="stories" options={{ title: '短篇故事' }} />
         <Stack.Screen name="story/[id]" options={{ title: '阅读' }} />

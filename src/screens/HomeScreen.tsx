@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { BottomNav } from '../components/BottomNav';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { Screen } from '../components/Screen';
 import { StatChip } from '../components/StatChip';
@@ -14,9 +15,7 @@ type HomeScreenProps = {
   profile: UserProfile;
   stats: LearningStats;
   onStartSession: () => void;
-  onOpenDictionary: () => void;
   onOpenStories: () => void;
-  onOpenProgress: () => void;
 };
 
 export function HomeScreen({
@@ -26,14 +25,13 @@ export function HomeScreen({
   profile,
   stats,
   onStartSession,
-  onOpenDictionary,
   onOpenStories,
-  onOpenProgress,
 }: HomeScreenProps) {
   const featuredStory = stories[0];
+  const dailyThemes = Array.from(new Set(dailyPlan.map((lesson) => lesson.themeZh))).slice(0, 4);
 
   return (
-    <Screen>
+    <Screen bottomBar={<BottomNav />}>
       <View style={styles.hero}>
         <Text style={styles.greeting}>Hei! 今天继续学芬兰语</Text>
         <Text style={styles.subtitle}>
@@ -51,12 +49,22 @@ export function HomeScreen({
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>今日学习卡</Text>
         <Text style={styles.sectionMeta}>内容库共 {lessons.length} 个词条，已引入 {stats.introducedLessons} 个。</Text>
+        <View style={styles.tagRow}>
+          {dailyThemes.map((theme) => (
+            <View key={theme} style={styles.tag}>
+              <Text style={styles.tagText}>{theme}</Text>
+            </View>
+          ))}
+        </View>
         {dailyPlan.map((lesson) => (
           <View key={lesson.id} style={styles.lessonCard}>
             <View style={styles.lessonHeader}>
               <Text style={styles.lessonWord}>{lesson.finnish}</Text>
               <Text style={styles.lessonCategory}>{lesson.categoryZh}</Text>
             </View>
+            <Text style={styles.lessonMeta}>
+              {lesson.levelZh} · {lesson.themeZh}
+            </Text>
             <Text style={styles.lessonPronunciation}>{lesson.pronunciationZh}</Text>
             <Text style={styles.lessonChinese}>{lesson.chinese}</Text>
             <Text style={styles.lessonTip}>{lesson.tipZh}</Text>
@@ -70,6 +78,9 @@ export function HomeScreen({
           <View style={styles.storyCard}>
             <Text style={styles.storyTitle}>{featuredStory.titleZh}</Text>
             <Text style={styles.storySubtitle}>{featuredStory.titleFi}</Text>
+            <Text style={styles.storyLevel}>
+              {featuredStory.levelZh} · {featuredStory.themeZh} · 约 {featuredStory.estimatedMinutes} 分钟
+            </Text>
             <Text style={styles.storySummary}>{featuredStory.summaryZh}</Text>
             <Text style={styles.storyTags}>关键词：{featuredStory.focusWords.join(' / ')}</Text>
           </View>
@@ -77,9 +88,7 @@ export function HomeScreen({
       ) : null}
 
       <PrimaryButton label="开始今日练习" onPress={onStartSession} />
-      <PrimaryButton label="搜索词典" onPress={onOpenDictionary} variant="secondary" />
       <PrimaryButton label="阅读短篇故事" onPress={onOpenStories} variant="secondary" />
-      <PrimaryButton label="查看学习进度" onPress={onOpenProgress} variant="secondary" />
     </Screen>
   );
 }
@@ -128,6 +137,24 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: colors.muted,
   },
+  tagRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  tag: {
+    backgroundColor: colors.card,
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  tagText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: colors.accent,
+  },
   lessonCard: {
     backgroundColor: colors.surface,
     borderRadius: 20,
@@ -157,6 +184,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginBottom: 6,
   },
+  lessonMeta: {
+    fontSize: 13,
+    color: colors.muted,
+    marginBottom: 8,
+  },
   lessonChinese: {
     fontSize: 18,
     color: colors.text,
@@ -183,6 +215,12 @@ const styles = StyleSheet.create({
     marginTop: 4,
     fontSize: 15,
     color: colors.accent,
+    fontWeight: '700',
+  },
+  storyLevel: {
+    marginTop: 8,
+    fontSize: 13,
+    color: colors.warm,
     fontWeight: '700',
   },
   storySummary: {

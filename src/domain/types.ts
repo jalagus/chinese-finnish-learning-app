@@ -10,6 +10,8 @@ export type GoalOption = {
 export type Lesson = {
   id: string;
   categoryZh: string;
+  levelZh: string;
+  themeZh: string;
   finnish: string;
   pronunciationZh: string;
   chinese: string;
@@ -28,6 +30,8 @@ export type Story = {
   titleZh: string;
   titleFi: string;
   levelZh: string;
+  themeZh: string;
+  estimatedMinutes: number;
   summaryZh: string;
   focusWords: string[];
   paragraphs: StoryParagraph[];

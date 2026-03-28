@@ -30,6 +30,9 @@ export function StoryReaderScreen({ story }: StoryReaderScreenProps) {
       <View style={styles.headerCard}>
         <Text style={styles.title}>{story.titleZh}</Text>
         <Text style={styles.titleFi}>{story.titleFi}</Text>
+        <Text style={styles.meta}>
+          {story.levelZh} · {story.themeZh} · 约 {story.estimatedMinutes} 分钟
+        </Text>
         <View style={styles.audioRow}>
           <AudioPlayButton source={storyAudio?.title?.source} label="标题朗读" />
         </View>
@@ -76,6 +79,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 22,
     color: colors.muted,
+  },
+  meta: {
+    marginTop: 8,
+    fontSize: 13,
+    color: colors.warm,
+    fontWeight: '700',
   },
   focusWords: {
     marginTop: 12,

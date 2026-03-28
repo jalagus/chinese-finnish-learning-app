@@ -152,12 +152,10 @@ Generate audio for all Finnish lesson and story text in `src/data/seed.ts`:
 uv run python scripts/generate_all_finnish_audio.py --output-dir out/audio
 ```
 
-Copy the generated audio into bundled app assets and regenerate the static TypeScript manifest:
+Convert the generated WAV files into bundled MP3 assets and regenerate the static TypeScript manifest:
 
 ```bash
-mkdir -p assets/audio
-cp -R out/audio/. assets/audio/
-python scripts/build_audio_asset_manifest.py
+npm run audio:bundle
 ```
 
 That bulk script creates organized WAV files for:
@@ -176,6 +174,13 @@ The bulk exporter now uses app-friendly paths and a structured manifest:
 - `out/audio/stories/<story-id>/title.wav`
 - `out/audio/stories/<story-id>/paragraphs/01.wav`
 
+After conversion, the bundled app assets are stored as MP3:
+
+- `assets/audio/lessons/<lesson-id>/word.mp3`
+- `assets/audio/lessons/<lesson-id>/example.mp3`
+- `assets/audio/stories/<story-id>/title.mp3`
+- `assets/audio/stories/<story-id>/paragraphs/01.mp3`
+
 Example manifest shape:
 
 ```json
@@ -183,22 +188,22 @@ Example manifest shape:
   "schemaVersion": 1,
   "lessons": {
     "moi": {
-      "word": { "text": "Moi", "path": "lessons/moi/word.wav" },
-      "example": { "text": "Moi! Mitä kuuluu?", "path": "lessons/moi/example.wav" }
+      "word": { "text": "Moi", "path": "lessons/moi/word.mp3" },
+      "example": { "text": "Moi! Mitä kuuluu?", "path": "lessons/moi/example.mp3" }
     }
   },
   "stories": {
     "morning-hello": {
-      "title": { "text": "Aamun tervehdys", "path": "stories/morning-hello/title.wav" },
+      "title": { "text": "Aamun tervehdys", "path": "stories/morning-hello/title.mp3" },
       "paragraphs": [
-        { "index": 1, "text": "Liisa näkee ystävänsä...", "path": "stories/morning-hello/paragraphs/01.wav" }
+        { "index": 1, "text": "Liisa näkee ystävänsä...", "path": "stories/morning-hello/paragraphs/01.mp3" }
       ]
     }
   }
 }
 ```
 
-That format is intended to be easy for the Expo app to consume directly later.
+That format is consumed directly by the Expo app after the TypeScript manifest is rebuilt.
 
 If you prefer not to use `uv`, the older fallback is still available:
 

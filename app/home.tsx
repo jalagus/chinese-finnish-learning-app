@@ -15,9 +15,7 @@ export default function HomeRoute() {
       stats={stats}
       stories={stories}
       onStartSession={() => router.push('/learn')}
-      onOpenDictionary={() => router.push('/dictionary')}
       onOpenStories={() => router.push('/stories')}
-      onOpenProgress={() => router.push('/progress')}
     />
   );
 }
