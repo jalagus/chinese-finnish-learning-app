@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Finnish Learning for Chinese",
+    "slug": "finnish-learning-for-chinese",
+    "scheme": "finnish-learning-for-chinese",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-router",
+      "expo-dev-client"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "android": {
+      "package": "com.jalagus.finnishlearningforchinese"
+    },
+    "ios": {
+      "bundleIdentifier": "com.jalagus.finnishlearningforchinese"
+    }
+  }
+}

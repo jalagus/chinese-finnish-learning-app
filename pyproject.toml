@@ -1,0 +1,34 @@
+[project]
+name = "suomi-start-tts"
+version = "0.1.0"
+description = "Python utilities for generating Finnish TTS audio for Suomi Start."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "conformer==0.3.2",
+  "diffusers==0.29.0",
+  "ffmpeg-python",
+  "gdown",
+  "hf_transfer",
+  "huggingface_hub",
+  "librosa==0.11.0",
+  "num2words",
+  "omegaconf",
+  "pandas",
+  "peft==0.17.1",
+  "pyloudnorm",
+  "resemble-perth==1.0.1",
+  "requests",
+  "s3tokenizer==0.3.0",
+  "safetensors",
+  "silero-vad==6.2.0",
+  "soundfile",
+  "tensorboard",
+  "torch",
+  "torchao==0.6.1",
+  "tqdm",
+  "transformers",
+]
+
+[tool.uv]
+package = false

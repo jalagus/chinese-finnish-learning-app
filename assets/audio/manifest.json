@@ -1,0 +1,731 @@
+{
+  "schemaVersion": 1,
+  "lessons": {
+    "moi": {
+      "word": {
+        "text": "Moi",
+        "path": "lessons/moi/word.wav"
+      },
+      "example": {
+        "text": "Moi! Mitä kuuluu?",
+        "path": "lessons/moi/example.wav"
+      }
+    },
+    "hei": {
+      "word": {
+        "text": "Hei",
+        "path": "lessons/hei/word.wav"
+      },
+      "example": {
+        "text": "Hei, minä olen Lin.",
+        "path": "lessons/hei/example.wav"
+      }
+    },
+    "nakymin": {
+      "word": {
+        "text": "Näkemiin",
+        "path": "lessons/nakymin/word.wav"
+      },
+      "example": {
+        "text": "Näkemiin, nähdään huomenna.",
+        "path": "lessons/nakymin/example.wav"
+      }
+    },
+    "kiitos": {
+      "word": {
+        "text": "Kiitos",
+        "path": "lessons/kiitos/word.wav"
+      },
+      "example": {
+        "text": "Kiitos avusta.",
+        "path": "lessons/kiitos/example.wav"
+      }
+    },
+    "ole-hyva": {
+      "word": {
+        "text": "Ole hyvä",
+        "path": "lessons/ole-hyva/word.wav"
+      },
+      "example": {
+        "text": "Kiitos. Ole hyvä.",
+        "path": "lessons/ole-hyva/example.wav"
+      }
+    },
+    "anteeksi": {
+      "word": {
+        "text": "Anteeksi",
+        "path": "lessons/anteeksi/word.wav"
+      },
+      "example": {
+        "text": "Anteeksi, missä asema on?",
+        "path": "lessons/anteeksi/example.wav"
+      }
+    },
+    "kylla": {
+      "word": {
+        "text": "Kyllä",
+        "path": "lessons/kylla/word.wav"
+      },
+      "example": {
+        "text": "Kyllä, ymmärrän.",
+        "path": "lessons/kylla/example.wav"
+      }
+    },
+    "ei": {
+      "word": {
+        "text": "Ei",
+        "path": "lessons/ei/word.wav"
+      },
+      "example": {
+        "text": "Ei, en puhu hyvin suomea.",
+        "path": "lessons/ei/example.wav"
+      }
+    },
+    "ehka": {
+      "word": {
+        "text": "Ehkä",
+        "path": "lessons/ehka/word.wav"
+      },
+      "example": {
+        "text": "Ehkä tulen myöhemmin.",
+        "path": "lessons/ehka/example.wav"
+      }
+    },
+    "vetta": {
+      "word": {
+        "text": "Vettä",
+        "path": "lessons/vetta/word.wav"
+      },
+      "example": {
+        "text": "Haluan vettä.",
+        "path": "lessons/vetta/example.wav"
+      }
+    },
+    "kahvi": {
+      "word": {
+        "text": "Kahvi",
+        "path": "lessons/kahvi/word.wav"
+      },
+      "example": {
+        "text": "Juon aamulla kahvia.",
+        "path": "lessons/kahvi/example.wav"
+      }
+    },
+    "tee": {
+      "word": {
+        "text": "Tee",
+        "path": "lessons/tee/word.wav"
+      },
+      "example": {
+        "text": "Haluatko teetä vai kahvia?",
+        "path": "lessons/tee/example.wav"
+      }
+    },
+    "leipa": {
+      "word": {
+        "text": "Leipä",
+        "path": "lessons/leipa/word.wav"
+      },
+      "example": {
+        "text": "Syön leipää aamiaisella.",
+        "path": "lessons/leipa/example.wav"
+      }
+    },
+    "maito": {
+      "word": {
+        "text": "Maito",
+        "path": "lessons/maito/word.wav"
+      },
+      "example": {
+        "text": "Ostan maitoa kaupasta.",
+        "path": "lessons/maito/example.wav"
+      }
+    },
+    "omena": {
+      "word": {
+        "text": "Omena",
+        "path": "lessons/omena/word.wav"
+      },
+      "example": {
+        "text": "Punainen omena on pöydällä.",
+        "path": "lessons/omena/example.wav"
+      }
+    },
+    "juna": {
+      "word": {
+        "text": "Juna",
+        "path": "lessons/juna/word.wav"
+      },
+      "example": {
+        "text": "Juna lähtee pian.",
+        "path": "lessons/juna/example.wav"
+      }
+    },
+    "bussi": {
+      "word": {
+        "text": "Bussi",
+        "path": "lessons/bussi/word.wav"
+      },
+      "example": {
+        "text": "Bussi tulee viidessä minuutissa.",
+        "path": "lessons/bussi/example.wav"
+      }
+    },
+    "asema": {
+      "word": {
+        "text": "Asema",
+        "path": "lessons/asema/word.wav"
+      },
+      "example": {
+        "text": "Rautatieasema on tuolla.",
+        "path": "lessons/asema/example.wav"
+      }
+    },
+    "lippu": {
+      "word": {
+        "text": "Lippu",
+        "path": "lessons/lippu/word.wav"
+      },
+      "example": {
+        "text": "Missä voin ostaa lipun?",
+        "path": "lessons/lippu/example.wav"
+      }
+    },
+    "koulu": {
+      "word": {
+        "text": "Koulu",
+        "path": "lessons/koulu/word.wav"
+      },
+      "example": {
+        "text": "Koulu on keskustassa.",
+        "path": "lessons/koulu/example.wav"
+      }
+    },
+    "tyo": {
+      "word": {
+        "text": "Työ",
+        "path": "lessons/tyo/word.wav"
+      },
+      "example": {
+        "text": "Minulla on paljon työtä tänään.",
+        "path": "lessons/tyo/example.wav"
+      }
+    },
+    "koti": {
+      "word": {
+        "text": "Koti",
+        "path": "lessons/koti/word.wav"
+      },
+      "example": {
+        "text": "Menen nyt kotiin.",
+        "path": "lessons/koti/example.wav"
+      }
+    },
+    "huone": {
+      "word": {
+        "text": "Huone",
+        "path": "lessons/huone/word.wav"
+      },
+      "example": {
+        "text": "Huone on pieni mutta valoisa.",
+        "path": "lessons/huone/example.wav"
+      }
+    },
+    "kauppa": {
+      "word": {
+        "text": "Kauppa",
+        "path": "lessons/kauppa/word.wav"
+      },
+      "example": {
+        "text": "Kauppa on auki vielä.",
+        "path": "lessons/kauppa/example.wav"
+      }
+    },
+    "raha": {
+      "word": {
+        "text": "Raha",
+        "path": "lessons/raha/word.wav"
+      },
+      "example": {
+        "text": "Minulla ei ole paljon rahaa.",
+        "path": "lessons/raha/example.wav"
+      }
+    },
+    "ystava": {
+      "word": {
+        "text": "Ystävä",
+        "path": "lessons/ystava/word.wav"
+      },
+      "example": {
+        "text": "Hän on minun ystäväni.",
+        "path": "lessons/ystava/example.wav"
+      }
+    },
+    "perhe": {
+      "word": {
+        "text": "Perhe",
+        "path": "lessons/perhe/word.wav"
+      },
+      "example": {
+        "text": "Minun perheeni asuu Kiinassa.",
+        "path": "lessons/perhe/example.wav"
+      }
+    },
+    "opettaja": {
+      "word": {
+        "text": "Opettaja",
+        "path": "lessons/opettaja/word.wav"
+      },
+      "example": {
+        "text": "Opettaja puhuu hitaasti.",
+        "path": "lessons/opettaja/example.wav"
+      }
+    },
+    "opiskelija": {
+      "word": {
+        "text": "Opiskelija",
+        "path": "lessons/opiskelija/word.wav"
+      },
+      "example": {
+        "text": "Olen uusi opiskelija.",
+        "path": "lessons/opiskelija/example.wav"
+      }
+    },
+    "suomi": {
+      "word": {
+        "text": "Suomi",
+        "path": "lessons/suomi/word.wav"
+      },
+      "example": {
+        "text": "Opiskelen suomea.",
+        "path": "lessons/suomi/example.wav"
+      }
+    },
+    "kiina": {
+      "word": {
+        "text": "Kiina",
+        "path": "lessons/kiina/word.wav"
+      },
+      "example": {
+        "text": "Olen kotoisin Kiinasta.",
+        "path": "lessons/kiina/example.wav"
+      }
+    },
+    "englanti": {
+      "word": {
+        "text": "Englanti",
+        "path": "lessons/englanti/word.wav"
+      },
+      "example": {
+        "text": "Puhutko englantia?",
+        "path": "lessons/englanti/example.wav"
+      }
+    },
+    "mina": {
+      "word": {
+        "text": "Minä",
+        "path": "lessons/mina/word.wav"
+      },
+      "example": {
+        "text": "Minä olen täällä.",
+        "path": "lessons/mina/example.wav"
+      }
+    },
+    "sina": {
+      "word": {
+        "text": "Sinä",
+        "path": "lessons/sina/word.wav"
+      },
+      "example": {
+        "text": "Sinä puhut hyvin.",
+        "path": "lessons/sina/example.wav"
+      }
+    },
+    "han": {
+      "word": {
+        "text": "Hän",
+        "path": "lessons/han/word.wav"
+      },
+      "example": {
+        "text": "Hän asuu Espoossa.",
+        "path": "lessons/han/example.wav"
+      }
+    },
+    "missa": {
+      "word": {
+        "text": "Missä",
+        "path": "lessons/missa/word.wav"
+      },
+      "example": {
+        "text": "Missä wc on?",
+        "path": "lessons/missa/example.wav"
+      }
+    },
+    "mita": {
+      "word": {
+        "text": "Mitä",
+        "path": "lessons/mita/word.wav"
+      },
+      "example": {
+        "text": "Mitä tämä tarkoittaa?",
+        "path": "lessons/mita/example.wav"
+      }
+    },
+    "milloin": {
+      "word": {
+        "text": "Milloin",
+        "path": "lessons/milloin/word.wav"
+      },
+      "example": {
+        "text": "Milloin juna lähtee?",
+        "path": "lessons/milloin/example.wav"
+      }
+    },
+    "tanaan": {
+      "word": {
+        "text": "Tänään",
+        "path": "lessons/tanaan/word.wav"
+      },
+      "example": {
+        "text": "Tänään on kylmä.",
+        "path": "lessons/tanaan/example.wav"
+      }
+    },
+    "huomenna": {
+      "word": {
+        "text": "Huomenna",
+        "path": "lessons/huomenna/word.wav"
+      },
+      "example": {
+        "text": "Nähdään huomenna.",
+        "path": "lessons/huomenna/example.wav"
+      }
+    },
+    "nyt": {
+      "word": {
+        "text": "Nyt",
+        "path": "lessons/nyt/word.wav"
+      },
+      "example": {
+        "text": "Minun täytyy mennä nyt.",
+        "path": "lessons/nyt/example.wav"
+      }
+    },
+    "aamu": {
+      "word": {
+        "text": "Aamu",
+        "path": "lessons/aamu/word.wav"
+      },
+      "example": {
+        "text": "Aamu on rauhallinen.",
+        "path": "lessons/aamu/example.wav"
+      }
+    },
+    "ilta": {
+      "word": {
+        "text": "Ilta",
+        "path": "lessons/ilta/word.wav"
+      },
+      "example": {
+        "text": "Hyvää iltaa!",
+        "path": "lessons/ilta/example.wav"
+      }
+    },
+    "iso": {
+      "word": {
+        "text": "Iso",
+        "path": "lessons/iso/word.wav"
+      },
+      "example": {
+        "text": "Tämä talo on iso.",
+        "path": "lessons/iso/example.wav"
+      }
+    },
+    "pieni": {
+      "word": {
+        "text": "Pieni",
+        "path": "lessons/pieni/word.wav"
+      },
+      "example": {
+        "text": "Minulla on pieni laukku.",
+        "path": "lessons/pieni/example.wav"
+      }
+    },
+    "hyva": {
+      "word": {
+        "text": "Hyvä",
+        "path": "lessons/hyva/word.wav"
+      },
+      "example": {
+        "text": "Se on hyvä idea.",
+        "path": "lessons/hyva/example.wav"
+      }
+    },
+    "kylma": {
+      "word": {
+        "text": "Kylmä",
+        "path": "lessons/kylma/word.wav"
+      },
+      "example": {
+        "text": "Ulkona on kylmä.",
+        "path": "lessons/kylma/example.wav"
+      }
+    },
+    "lammin": {
+      "word": {
+        "text": "Lämmin",
+        "path": "lessons/lammin/word.wav"
+      },
+      "example": {
+        "text": "Tänään on lämmin päivä.",
+        "path": "lessons/lammin/example.wav"
+      }
+    },
+    "aurinko": {
+      "word": {
+        "text": "Aurinko",
+        "path": "lessons/aurinko/word.wav"
+      },
+      "example": {
+        "text": "Aurinko paistaa.",
+        "path": "lessons/aurinko/example.wav"
+      }
+    },
+    "sataa": {
+      "word": {
+        "text": "Sataa",
+        "path": "lessons/sataa/word.wav"
+      },
+      "example": {
+        "text": "Tänään sataa vettä.",
+        "path": "lessons/sataa/example.wav"
+      }
+    }
+  },
+  "stories": {
+    "morning-hello": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Liisa näkee ystävänsä bussipysäkillä. Hän sanoo: Moi!",
+          "path": "stories/morning-hello/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Ystävä hymyilee ja vastaa: Moi, Liisa! Mitä kuuluu?",
+          "path": "stories/morning-hello/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Liisa sanoo: Hyvää kuuluu. Kiitos! Ja sinä?",
+          "path": "stories/morning-hello/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Ystävä sanoo: Kyllä, kaikki on hyvin. Bussi tulee pian.",
+          "path": "stories/morning-hello/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Aamun tervehdys",
+        "path": "stories/morning-hello/title.wav"
+      }
+    },
+    "water-at-cafe": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Wei menee pieneen kahvilaan Helsingissä.",
+          "path": "stories/water-at-cafe/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Hän sanoo tarjoilijalle: Anteeksi, haluan vettä.",
+          "path": "stories/water-at-cafe/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Tarjoilija kysyy: Haluatko myös kahvia?",
+          "path": "stories/water-at-cafe/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Wei vastaa: Ei, kiitos. Vettä on hyvä.",
+          "path": "stories/water-at-cafe/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Vettä kahvilassa",
+        "path": "stories/water-at-cafe/title.wav"
+      }
+    },
+    "train-to-school": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Minä opiskelen suomea ja menen kouluun junalla.",
+          "path": "stories/train-to-school/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Aamulla juna on hiljainen, ja minä luen kirjaa.",
+          "path": "stories/train-to-school/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Koulussa ystäväni sanoo: Sinun suomi on parempi nyt!",
+          "path": "stories/train-to-school/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Minä hymyilen ja sanon: Kiitos, minä harjoittelen joka päivä.",
+          "path": "stories/train-to-school/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Juna kouluun",
+        "path": "stories/train-to-school/title.wav"
+      }
+    },
+    "breakfast-at-home": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Aamulla Mei on kotona ja tekee aamiaista.",
+          "path": "stories/breakfast-at-home/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Pöydällä on leipää, maitoa ja yksi omena.",
+          "path": "stories/breakfast-at-home/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Mei ajattelee: Tänään minä opiskelen paljon suomea.",
+          "path": "stories/breakfast-at-home/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Aamiainen on pieni, mutta hyvä.",
+          "path": "stories/breakfast-at-home/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Aamiainen kotona",
+        "path": "stories/breakfast-at-home/title.wav"
+      }
+    },
+    "ticket-at-station": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Chen tulee asemalle vähän myöhässä.",
+          "path": "stories/ticket-at-station/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Hän kysyy: Anteeksi, missä voin ostaa lipun?",
+          "path": "stories/ticket-at-station/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Työntekijä sanoo: Lippuautomaatti on tuolla oikealla.",
+          "path": "stories/ticket-at-station/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Chen kysyy vielä: Milloin juna lähtee? Työntekijä vastaa: Nyt pian.",
+          "path": "stories/ticket-at-station/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Lippu asemalla",
+        "path": "stories/ticket-at-station/title.wav"
+      }
+    },
+    "new-student": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lin on uusi opiskelija suomalaisessa koulussa.",
+          "path": "stories/new-student/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Opettaja sanoo: Hei! Tervetuloa luokkaan.",
+          "path": "stories/new-student/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Lin sanoo: Hei, minä olen Lin. Olen kotoisin Kiinasta.",
+          "path": "stories/new-student/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Opettaja hymyilee ja sanoo: Sinun suomi alkaa hyvin.",
+          "path": "stories/new-student/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Uusi opiskelija",
+        "path": "stories/new-student/title.wav"
+      }
+    },
+    "weather-today": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Tänään ulkona on kylmä, mutta aurinko paistaa.",
+          "path": "stories/weather-today/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Minä laitan lämpimän takin päälle ja menen bussiin.",
+          "path": "stories/weather-today/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Ystäväni sanoo: Huomenna on ehkä lämpimämpi päivä.",
+          "path": "stories/weather-today/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Minä vastaan: Se on hyvä uutinen.",
+          "path": "stories/weather-today/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Sää tänään",
+        "path": "stories/weather-today/title.wav"
+      }
+    },
+    "after-work-shop": {
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Työn jälkeen Jun menee pieneen kauppaan.",
+          "path": "stories/after-work-shop/paragraphs/01.wav"
+        },
+        {
+          "index": 2,
+          "text": "Hän ostaa leipää, maitoa ja kahvia.",
+          "path": "stories/after-work-shop/paragraphs/02.wav"
+        },
+        {
+          "index": 3,
+          "text": "Jun katsoo rahaa ja ajattelee: Tänään tämä riittää.",
+          "path": "stories/after-work-shop/paragraphs/03.wav"
+        },
+        {
+          "index": 4,
+          "text": "Sitten hän menee tyytyväisenä kotiin.",
+          "path": "stories/after-work-shop/paragraphs/04.wav"
+        }
+      ],
+      "title": {
+        "text": "Kauppaan työn jälkeen",
+        "path": "stories/after-work-shop/title.wav"
+      }
+    }
+  }
+}

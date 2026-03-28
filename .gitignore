@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+
+# Node / Expo
+node_modules/
+npm-debug.log*
+.expo/
+dist/
+
+# TypeScript / Expo generated
+expo-env.d.ts
+
+# Python / uv
+.venv/
+.python-version
+__pycache__/
+*.py[cod]
+.cache/
+
+# Generated audio scratch output
+out/
+
+# Android
+android/.gradle/
+android/.kotlin/
+android/app/build/
+android/build/
+android/app/.cxx/
+android/local.properties
+*.keystore
+*.jks
+
+# iOS
+ios/Pods/
+ios/build/
+*.xcuserstate
+ios/.xcode.env.local
+
+# Coverage / misc build outputs
+coverage/
+tmp/
+temp/
