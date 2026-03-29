@@ -129,9 +129,15 @@ def to_posix_relative(path: Path, root: Path) -> str:
 
 def parse_lessons(section: str, output_dir: Path) -> List[AudioJob]:
     lesson_pattern = re.compile(
-        r"id:\s*'(?P<id>[^']+)'.*?"
-        r"finnish:\s*'(?P<finnish>[^']+)'.*?"
-        r"exampleFi:\s*'(?P<example>[^']+)'",
+        r"lesson\(\s*"
+        r"'(?P<id>[^']+)'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"'(?P<finnish>[^']+)'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"'(?P<example>[^']+)'",
         re.S,
     )
 
@@ -165,9 +171,17 @@ def parse_lessons(section: str, output_dir: Path) -> List[AudioJob]:
 
 def parse_stories(section: str, output_dir: Path) -> List[AudioJob]:
     story_pattern = re.compile(
-        r"id:\s*'(?P<id>[^']+)'.*?"
-        r"titleFi:\s*'(?P<title>[^']+)'.*?"
-        r"paragraphs:\s*\[(?P<paragraphs>.*?)\]\s*,",
+        r"story\(\s*"
+        r"'(?P<id>[^']+)'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"'(?P<title>[^']+)'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"\d+\s*,\s*"
+        r"'[^']*'\s*,\s*"
+        r"\[(?P<focus_words>.*?)\]\s*,\s*"
+        r"\[(?P<paragraphs>.*?)\]\s*"
+        r"\)",
         re.S,
     )
     paragraph_pattern = re.compile(r"finnish:\s*'([^']+)'")

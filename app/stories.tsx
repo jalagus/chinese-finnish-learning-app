@@ -1,11 +1,16 @@
 import React from 'react';
 import { router } from 'expo-router';
 
+import { AppLoadingScreen } from '../src/components/AppLoadingScreen';
 import { useAppState } from '../src/providers/AppProvider';
 import { StoriesScreen } from '../src/screens/StoriesScreen';
 
 export default function StoriesRoute() {
-  const { recommendedStories, stories } = useAppState();
+  const { isHydrated, recommendedStories, stories } = useAppState();
+
+  if (!isHydrated) {
+    return <AppLoadingScreen />;
+  }
 
   return (
     <StoriesScreen

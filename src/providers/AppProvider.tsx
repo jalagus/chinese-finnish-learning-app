@@ -1,5 +1,6 @@
-import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react';
 
+import { loadAppSnapshot, saveAppSnapshot } from '../data/persistence';
 import { goalOptions, lessonCatalog, storyCatalog } from '../data/seed';
 import { GoalOption, LessonProgress, PracticeEntry, ReviewGrade, UserProfile } from '../domain/types';
 import {
@@ -12,6 +13,7 @@ import {
 } from '../features/review/reviewEngine';
 
 type AppStateValue = {
+  isHydrated: boolean;
   hasOnboarded: boolean;
   profile: UserProfile;
   lessons: typeof lessonCatalog;
@@ -36,7 +38,25 @@ function createLessonProgressMap() {
   return Object.fromEntries(lessonCatalog.map((lesson) => [lesson.id, createInitialLessonProgress(lesson.id)]));
 }
 
+function mergeLessonProgressMap(progressMap: Record<string, LessonProgress> | undefined) {
+  const initialMap = createLessonProgressMap();
+
+  return Object.fromEntries(
+    lessonCatalog.map((lesson) => [
+      lesson.id,
+      progressMap?.[lesson.id]
+        ? {
+            ...initialMap[lesson.id],
+            ...progressMap[lesson.id],
+            lessonId: lesson.id,
+          }
+        : initialMap[lesson.id],
+    ])
+  );
+}
+
 export function AppProvider({ children }: PropsWithChildren) {
+  const [isHydrated, setIsHydrated] = useState(false);
   const [profile, setProfile] = useState<UserProfile>({
     hasOnboarded: false,
     selectedGoal: defaultGoal,
@@ -47,6 +67,57 @@ export function AppProvider({ children }: PropsWithChildren) {
     lessonCatalog.slice(0, defaultGoal.lessonsPerDay).map((lesson) => lesson.id)
   );
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    void (async () => {
+      const snapshot = await loadAppSnapshot(goalOptions);
+
+      if (isCancelled) {
+        return;
+      }
+
+      if (snapshot) {
+        const mergedProgressMap = mergeLessonProgressMap(snapshot.lessonProgressMap);
+        const validSessionLessonIds = snapshot.sessionLessonIds.filter((lessonId) =>
+          lessonCatalog.some((lesson) => lesson.id === lessonId)
+        );
+        const fallbackSessionLessonIds = buildSessionPlan(
+          lessonCatalog,
+          mergedProgressMap,
+          snapshot.profile.selectedGoal.lessonsPerDay
+        ).map((lesson) => lesson.id);
+        const nextSessionLessonIds = validSessionLessonIds.length > 0 ? validSessionLessonIds : fallbackSessionLessonIds;
+
+        setProfile(snapshot.profile);
+        setPracticeLog(snapshot.practiceLog);
+        setLessonProgressMap(mergedProgressMap);
+        setSessionLessonIds(nextSessionLessonIds);
+        setCurrentIndex(Math.min(snapshot.currentIndex, Math.max(0, nextSessionLessonIds.length - 1)));
+      }
+
+      setIsHydrated(true);
+    })();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isHydrated) {
+      return;
+    }
+
+    void saveAppSnapshot({
+      profile,
+      practiceLog,
+      lessonProgressMap,
+      sessionLessonIds,
+      currentIndex,
+    });
+  }, [currentIndex, isHydrated, lessonProgressMap, practiceLog, profile, sessionLessonIds]);
 
   const dailyPlan = useMemo(() => {
     return sessionLessonIds
@@ -67,6 +138,7 @@ export function AppProvider({ children }: PropsWithChildren) {
     };
 
     return {
+      isHydrated,
       hasOnboarded: profile.hasOnboarded,
       profile,
       lessons: lessonCatalog,
@@ -109,7 +181,7 @@ export function AppProvider({ children }: PropsWithChildren) {
         rebuildSession();
       },
     };
-  }, [currentIndex, dailyPlan, lessonProgressMap, practiceLog, profile]);
+  }, [currentIndex, dailyPlan, isHydrated, lessonProgressMap, practiceLog, profile]);
 
   return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>;
 }
